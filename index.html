@@ -7,7 +7,7 @@
 <!-- Romantic Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
 
-<!-- Music -->
+<!-- Autoplay Music -->
 <audio id="bgMusic" src="New_West_-_Those_Eyes_CeeNaija.com_.mp3" autoplay loop></audio>
 
 <style>
@@ -37,7 +37,7 @@ body {
     to { transform: translateY(-350px); opacity: 0; }
 }
 
-/* 💐 Petals falling behind */
+/* 💐 Petals behind container */
 .petal {
     position: fixed;
     top: -20px;
@@ -58,12 +58,12 @@ body {
     margin: 70px auto;
     max-width: 650px;
     background: rgba(255,240,245,0.9);
-    padding: 50px;
+    padding: 40px 50px;
     border-radius: 45px;
     box-shadow: inset 0 0 20px rgba(255,200,220,0.6), 0 10px 30px rgba(255,150,180,0.4);
+    animation: fadeIn 1.2s ease;
     position: relative;
     z-index: 5;
-    animation: fadeIn 1.2s ease;
     text-align: left;
 }
 
@@ -103,25 +103,28 @@ button:hover {
     background: #ff7a9c;
 }
 
-/* Questions */
+/* Question text */
 .q {
     font-size: 22px;
     margin-top: 25px;
 }
 
-/* Options (PERFECTLY STRAIGHT & NOWRAP) */
+/* OPTIONS – FINAL PERFECT VERSION */
 .options {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;       /* Entire block left-aligned */
     gap: 8px;
     margin-bottom: 20px;
 }
 
 .options label {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;   /* Prevent center shifting */
     align-items: center;
     gap: 10px;
-    white-space: nowrap;   /* PERFECT alignment */
+    white-space: nowrap;           /* Prevent wrapping */
 }
 </style>
 </head>
@@ -131,7 +134,7 @@ button:hover {
 <!-- ✨ Sparkles -->
 <script>
 for (let i = 0; i < 40; i++) {
-    const s = document.createElement("div");
+    let s = document.createElement("div");
     s.classList.add("sparkle");
     s.style.left = Math.random() * window.innerWidth + "px";
     s.style.top = Math.random() * window.innerHeight + "px";
@@ -143,7 +146,7 @@ for (let i = 0; i < 40; i++) {
 <!-- 💐 Petals -->
 <script>
 for (let i = 0; i < 20; i++) {
-    const p = document.createElement("div");
+    let p = document.createElement("div");
     p.classList.add("petal");
     p.style.left = Math.random() * 100 + "vw";
     p.style.animationDelay = Math.random() * 7 + "s";
@@ -236,7 +239,7 @@ function quizPage2() {
 /* SCORE PAGE */
 function showScore() {
     container.innerHTML = `
-        <h1 style="font-family:'Great Vibes'; text-align:center; font-size:55px;">Your Score 💖</h1>
+        <h1 style="font-family:'Great Vibes'; font-size:55px; text-align:center;">Your Score 💖</h1>
 
         <p style="font-size:24px; text-align:center;">
             You got <b>10/10</b>, which means you tried.<br>
@@ -262,16 +265,12 @@ function valentineQuestion() {
 
         <div style="text-align:center;">
             <button onclick="valentineYes()" style="font-size:28px;">Yes 💗</button>
-
-            <button id="noBtn"
-                onmouseover="escapeNo()" 
-                onclick="escapeNo()"
-                style="font-size:20px;">No</button>
+            <button id="noBtn" onmouseover="escapeNo()" onclick="escapeNo()" style="font-size:20px;">No</button>
         </div>
     `;
 }
 
-/* No button runs away */
+/* NO button runs away */
 function escapeNo() {
     const b = document.getElementById("noBtn");
     b.style.position = "absolute";
@@ -279,17 +278,17 @@ function escapeNo() {
     b.style.top = Math.random() * (window.innerHeight - 140) + "px";
 }
 
-/* FINAL YES PAGE */
+/* FINAL PAGE (NO GIF SPACE) */
 function valentineYes() {
     container.innerHTML = `
-        <h1 style="font-family:'Great Vibes'; font-size:55px; text-align:center;">
+        <h1 style="font-family:'Great Vibes'; font-size:50px; text-align:center; margin-bottom:10px;">
             She said YES 🥹💖
         </h1>
 
         <img src="https://media.tenor.com/PHdVt8uWbH8AAAAC/cute-crying.gif"
-             style="width:180px; display:block; margin:5px auto; border-radius:15px;">
+             style="width:150px; display:block; margin:0 auto 10px auto; border-radius:12px;">
 
-        <p style="font-size:24px; text-align:center;">
+        <p style="font-size:22px; text-align:center; margin-top:0;">
             I love you always my dear Pazham pori 💛
         </p>
     `;
