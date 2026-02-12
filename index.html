@@ -7,11 +7,11 @@
 <!-- Romantic Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
 
-<!-- Autoplay Music -->
+<!-- Music -->
 <audio id="bgMusic" src="New_West_-_Those_Eyes_CeeNaija.com_.mp3" autoplay loop></audio>
 
 <style>
-/* 🌸 Pastel Heaven Background */
+/* 🌸 Background */
 body {
     margin: 0;
     padding: 0;
@@ -21,12 +21,12 @@ body {
     color: #7a4a4a;
 }
 
-/* ✨ Floating Sparkles */
+/* ✨ Sparkles */
 .sparkle {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.8);
     border-radius: 50%;
     box-shadow: 0 0 8px white;
     animation: sparkleFloat 6s linear infinite;
@@ -37,7 +37,7 @@ body {
     to { transform: translateY(-350px); opacity: 0; }
 }
 
-/* 💐 Falling Petals (BEHIND container) */
+/* 💐 Petals falling behind */
 .petal {
     position: fixed;
     top: -20px;
@@ -53,7 +53,7 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* 🌟 Kawaii Glow Container */
+/* 🌟 Container */
 #container {
     margin: 70px auto;
     max-width: 650px;
@@ -61,13 +61,12 @@ body {
     padding: 50px;
     border-radius: 45px;
     box-shadow: inset 0 0 20px rgba(255,200,220,0.6), 0 10px 30px rgba(255,150,180,0.4);
-    animation: fadeIn 1.2s ease;
     position: relative;
     z-index: 5;
+    animation: fadeIn 1.2s ease;
     text-align: left;
 }
 
-/* Fade animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
@@ -82,7 +81,6 @@ input {
     border-radius: 12px;
     background: #fff7fa;
     margin-top: 10px;
-    font-family: "Cormorant Garamond", serif;
 }
 
 /* Buttons */
@@ -105,24 +103,25 @@ button:hover {
     background: #ff7a9c;
 }
 
-/* Question text */
+/* Questions */
 .q {
     font-size: 22px;
     margin-top: 25px;
 }
 
-/* Options left aligned */
+/* Options (PERFECTLY STRAIGHT & NOWRAP) */
 .options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .options label {
     display: flex;
     align-items: center;
     gap: 10px;
-    white-space: nowrap;
+    white-space: nowrap;   /* PERFECT alignment */
 }
 </style>
 </head>
@@ -263,17 +262,21 @@ function valentineQuestion() {
 
         <div style="text-align:center;">
             <button onclick="valentineYes()" style="font-size:28px;">Yes 💗</button>
-            <button id="noBtn" onmouseover="escapeNo()" onclick="escapeNo()" style="font-size:20px;">No</button>
+
+            <button id="noBtn"
+                onmouseover="escapeNo()" 
+                onclick="escapeNo()"
+                style="font-size:20px;">No</button>
         </div>
     `;
 }
 
-/* "No" button runs away */
+/* No button runs away */
 function escapeNo() {
     const b = document.getElementById("noBtn");
     b.style.position = "absolute";
-    b.style.left = Math.random() * (window.innerWidth - 130) + "px";
-    b.style.top = Math.random() * (window.innerHeight - 130) + "px";
+    b.style.left = Math.random() * (window.innerWidth - 140) + "px";
+    b.style.top = Math.random() * (window.innerHeight - 140) + "px";
 }
 
 /* FINAL YES PAGE */
@@ -284,7 +287,7 @@ function valentineYes() {
         </h1>
 
         <img src="https://media.tenor.com/PHdVt8uWbH8AAAAC/cute-crying.gif"
-             style="width:230px; display:block; margin:20px auto; border-radius:20px;">
+             style="width:180px; display:block; margin:5px auto; border-radius:15px;">
 
         <p style="font-size:24px; text-align:center;">
             I love you always my dear Pazham pori 💛
