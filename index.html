@@ -30,14 +30,14 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 8px white;
     animation: sparkleFloat 6s linear infinite;
-    z-index: 2;
+    z-index: 1;
 }
 @keyframes sparkleFloat {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-350px); opacity: 0; }
 }
 
-/* 💐 Falling Petals */
+/* 💐 Falling Petals (BEHIND container) */
 .petal {
     position: fixed;
     top: -20px;
@@ -46,43 +46,18 @@ body {
     background-color: rgba(255,182,193,0.8);
     border-radius: 50% 70% 50% 70%;
     animation: fall 7s linear infinite;
-    z-index: 1;
+    z-index: 0;
 }
 @keyframes fall {
     0% { transform: translateY(0) rotate(0deg); }
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* 💗 Falling Hearts on Final Page */
-.heart-fall {
-    position: fixed;
-    top: -20px;
-    font-size: 24px;
-    animation: heartFall 6s linear infinite;
-    z-index: 200;
-}
-@keyframes heartFall {
-    0% { transform: translateY(0) rotate(0deg); opacity:1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
-}
-
-/* 💥 Heart Explosion */
-.heart-explosion {
-    position: absolute;
-    font-size: 22px;
-    animation: explode 0.9s ease-out forwards;
-    pointer-events: none;
-}
-@keyframes explode {
-    0% { transform: translate(0,0) scale(1); opacity:1; }
-    100% { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity:0; }
-}
-
 /* 🌟 Kawaii Glow Container */
 #container {
     margin: 70px auto;
     max-width: 650px;
-    background: rgba(255,240,245,0.88);
+    background: rgba(255,240,245,0.9);
     padding: 50px;
     border-radius: 45px;
     box-shadow: inset 0 0 20px rgba(255,200,220,0.6), 0 10px 30px rgba(255,150,180,0.4);
@@ -136,7 +111,7 @@ button:hover {
     margin-top: 25px;
 }
 
-/* Options */
+/* Options left aligned */
 .options {
     display: flex;
     flex-direction: column;
@@ -199,7 +174,7 @@ function startQuiz() {
         <h2 style="font-family:'Great Vibes'; font-size:48px; text-align:center;">Quiz Time 💕</h2>
 
         <p class="q">1. What was the first text I sent you and which movie reference is it from?</p>
-        <input id="q1">
+        <input>
 
         <p class="q">2. Which is a mandatory meal we ate every time I came?</p>
         <div class="options">
@@ -224,7 +199,7 @@ function startQuiz() {
         </div>
 
         <p class="q">5. Name one food we'd never agree to the way it's called in our language.</p>
-        <input id="q5">
+        <input>
 
         <button onclick="quizPage2()">Next ➜</button>
     `;
@@ -234,7 +209,7 @@ function startQuiz() {
 function quizPage2() {
     container.innerHTML = `
         <p class="q">6. What are the nicknames I use to call you and which one do I use the most?</p>
-        <input id="q6">
+        <input>
 
         <p class="q">7. Micheal can cook better than Sharon</p>
         <div class="options">
@@ -243,10 +218,10 @@ function quizPage2() {
         </div>
 
         <p class="q">8. When was our first sunrise together which you posted a story?</p>
-        <input id="q8">
+        <input>
 
         <p class="q">9. On which month did we buy rings for each other?</p>
-        <input id="q9">
+        <input>
 
         <p class="q">10. Do you love me?</p>
         <div class="options">
@@ -262,10 +237,10 @@ function quizPage2() {
 /* SCORE PAGE */
 function showScore() {
     container.innerHTML = `
-        <h1 style="font-family:'Great Vibes'; font-size:55px; text-align:center;">Your Score 💖</h1>
+        <h1 style="font-family:'Great Vibes'; text-align:center; font-size:55px;">Your Score 💖</h1>
 
-        <p style="font-size:26px; text-align:center;">
-            You got <b>10 out of 10</b>, which means you tried.<br>
+        <p style="font-size:24px; text-align:center;">
+            You got <b>10/10</b>, which means you tried.<br>
             No matter what, I still love you kutti ma ❤️
         </p>
 
@@ -273,7 +248,7 @@ function showScore() {
     `;
 }
 
-/* VALENTINE QUESTION PAGE */
+/* VALENTINE PAGE */
 function valentineQuestion() {
     container.innerHTML = `
         <h1 style="font-family:'Great Vibes'; font-size:52px; text-align:center;">
@@ -286,79 +261,35 @@ function valentineQuestion() {
             <b>Will you be my Valentine?</b> 💖
         </p>
 
-        <div style="text-align:center; margin-top:30px;">
-            <button onclick="triggerExplosion(event); valentineYes();" 
-                style="font-size:28px;">Yes 💗</button>
-
-            <button id="noBtn" 
-                onmouseover="escapeNo()" 
-                onclick="escapeNo()" 
-                style="font-size:22px;">No</button>
+        <div style="text-align:center;">
+            <button onclick="valentineYes()" style="font-size:28px;">Yes 💗</button>
+            <button id="noBtn" onmouseover="escapeNo()" onclick="escapeNo()" style="font-size:20px;">No</button>
         </div>
     `;
 }
 
-/* NO button runs away */
+/* "No" button runs away */
 function escapeNo() {
     const b = document.getElementById("noBtn");
     b.style.position = "absolute";
-    b.style.left = Math.random() * (window.innerWidth - 150) + "px";
-    b.style.top = Math.random() * (window.innerHeight - 150) + "px";
-}
-
-/* 💥 HEART EXPLOSION */
-function triggerExplosion(event) {
-    const x = event.clientX;
-    const y = event.clientY;
-
-    for (let i = 0; i < 14; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart-explosion");
-        heart.innerHTML = "❤️";
-
-        const dx = (Math.random() - 0.5) * 300;
-        const dy = (Math.random() - 0.5) * 300;
-
-        heart.style.left = x + "px";
-        heart.style.top = y + "px";
-        heart.style.setProperty("--dx", dx + "px");
-        heart.style.setProperty("--dy", dy + "px");
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 900);
-    }
+    b.style.left = Math.random() * (window.innerWidth - 130) + "px";
+    b.style.top = Math.random() * (window.innerHeight - 130) + "px";
 }
 
 /* FINAL YES PAGE */
 function valentineYes() {
-    /* Start falling hearts */
-    startHeartRain();
-
     container.innerHTML = `
         <h1 style="font-family:'Great Vibes'; font-size:55px; text-align:center;">
             She said YES 🥹💖
         </h1>
 
         <img src="https://media.tenor.com/PHdVt8uWbH8AAAAC/cute-crying.gif"
-             style="width:230px; border-radius:20px; display:block; margin:20px auto;">
+             style="width:230px; display:block; margin:20px auto; border-radius:20px;">
 
-        <p style="font-size:26px; text-align:center; line-height:1.5;">
+        <p style="font-size:24px; text-align:center;">
             I love you always my dear Pazham pori 💛
         </p>
     `;
-}
-
-/* 💗 Falling Hearts Function */
-function startHeartRain() {
-    for (let i = 0; i < 25; i++) {
-        const h = document.createElement("div");
-        h.classList.add("heart-fall");
-        h.innerHTML = "💖";
-        h.style.left = Math.random() * 100 + "vw";
-        h.style.animationDelay = Math.random() * 5 + "s";
-        document.body.appendChild(h);
-    }
 }
 </script>
 
