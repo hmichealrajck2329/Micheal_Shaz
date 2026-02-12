@@ -177,3 +177,78 @@ for (let i = 0; i < 20; i++) {
 
 <script>
 
+
+/* QUIZ WITH SCOREBOARD + 2 PAGES */
+
+function startQuiz() {
+    container.innerHTML = `
+        <h2 style="font-family:'Great Vibes'; font-size:48px;">Quiz Time 💕</h2>
+        <p style="font-size:22px;">Let's see if you score 10/10. I know you'll get everything correct hehe!!</p>
+
+        <p>1. What was the first text I sent you and which movie reference is it from?</p>
+        <input id="q1" placeholder="Type your answer">
+
+        <p>2. Which is a mandatory meal we ate every time I came?</p>
+        <label><input type="radio" name="q2" value="Indomie"> Indomie</label><br>
+        <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label><br>
+        <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
+
+        <p>3. What was our first movie date?</p>
+        <label><input type="radio" name="q3" value="3"> 3</label><br>
+        <label><input type="radio" name="q3" value="We Live In Time"> We Live In Time</label>
+
+        <p>4. What was one of our favourite moments?</p>
+        <label><input type="radio" name="q4" value="Sunsets"> Sunsets at St. Kilda</label><br>
+        <label><input type="radio" name="q4" value="Butterfly Museum"> Butterfly Museum</label><br>
+        <label><input type="radio" name="q4" value="Midnight strolls"> Mid-Night strolls</label><br>
+        <label><input type="radio" name="q4" value="All the above"> All the above ❤️</label>
+
+        <p>5. Name one food we'd never agree to the way it's called in our language.</p>
+        <input id="q5" placeholder="Type your answer"><br><br>
+
+        <button onclick="quizPage2()">Next Page ➜</button>
+    `;
+}
+
+function quizPage2() {
+    container.innerHTML = `
+        <h2 style="font-family:'Great Vibes'; font-size:48px;">Quiz Time (Page 2) 💕</h2>
+
+        <p>6. What are the nicknames I use to call you and which one do I use the most?</p>
+        <input id="q6" placeholder="Type your answer">
+
+        <p>7. Micheal can cook better than Sharon</p>
+        <label><input type="radio" name="q7" value="Agree"> Agree 😏</label><br>
+        <label><input type="radio" name="q7" value="Disagree"> Disagree</label>
+
+        <p>8. When was our first sunrise together which you posted a story?</p>
+        <input id="q8" placeholder="Type your answer">
+
+        <p>9. On which month did we buy rings for each other?</p>
+        <input id="q9" placeholder="Type your answer">
+
+        <p>10. Do you love me?</p>
+        <label><input type="radio" name="q10" value="Yes"> Yes</label><br>
+        <label><input type="radio" name="q10" value="Yes"> Yes</label><br>
+        <label><input type="radio" name="q10" value="All the above"> All the above ❤️</label><br><br>
+
+        <button onclick="showScore()">Submit ➜</button>
+    `;
+}
+
+/* SCOREBOARD SCREEN */
+function showScore() {
+    container.innerHTML = `
+        <h1 style="font-family:'Great Vibes'; font-size:55px;">Your Score 💖</h1>
+
+        <p style="font-size:26px; line-height:1.5;">
+            You got <b>10 out of 10</b>, which means you tried.  
+            <br>
+            No matter what, I still love you kutti ma ❤️
+        </p>
+
+        <button onclick="miniGame()">Continue ➜</button>
+    `;
+}
+
+
