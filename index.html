@@ -54,7 +54,7 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* 🌟 Kawaii Inner Glow Container (Style E) */
+/* 🌟 Kawaii Inner Glow Container */
 #container {
     margin: 70px auto;
     max-width: 650px;
@@ -69,7 +69,7 @@ body {
     z-index: 5;
 }
 
-/* Smooth fade animation */
+/* Fade animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
@@ -92,7 +92,7 @@ input:focus {
     box-shadow: 0 0 12px rgba(255,160,176,0.7);
 }
 
-/* 💗 Buttons */
+/* Buttons */
 button {
     background: #ff9bb3;
     color: white;
@@ -108,6 +108,28 @@ button {
 button:hover {
     transform: scale(1.12);
     background: #ff7a9c;
+}
+
+/* QUESTION STYLING */
+.q {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 </style>
 </head>
@@ -155,72 +177,90 @@ for (let i = 0; i < 20; i++) {
 </div>
 
 <script>
-/* ⭐ QUIZ WITH SCOREBOARD AND 2 PAGES ⭐ */
+/* ⭐ PERFECTLY ALIGNED QUIZ ⭐ */
 
+/* PAGE 1 */
 function startQuiz() {
     container.innerHTML = `
         <h2 style="font-family:'Great Vibes'; font-size:48px;">Quiz Time 💕</h2>
-        <p style="font-size:22px;">Let's see if you score 10/10. I know you'll get everything correct hehe!!</p>
+        <p style="font-size:22px; margin-bottom:35px;">Let's see if you score 10/10. I know you'll get everything correct hehe!!</p>
 
-        <p>1. What was the first text I sent you and which movie reference is it from?</p>
-        <input id="q1" placeholder="Type your answer">
+        <div class="qBox">
 
-        <p>2. Which is a mandatory meal we ate every time I came?</p>
-        <label><input type="radio" name="q2" value="Indomie"> Indomie</label><br>
-        <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label><br>
-        <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
+            <p class="q">1. What was the first text I sent you and which movie reference is it from?</p>
+            <input id="q1" placeholder="Type your answer">
 
-        <p>3. What was our first movie date?</p>
-        <label><input type="radio" name="q3" value="3"> 3</label><br>
-        <label><input type="radio" name="q3" value="We Live In Time"> We Live In Time</label>
+            <p class="q">2. Which is a mandatory meal we ate every time I came?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Indomie"> Indomie</label>
+                <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label>
+                <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
+                <label><input type="radio" name="q2" value="All the above"> All the above ❤️</label>
+            </div>
 
-        <p>4. What was one of our favourite moments?</p>
-        <label><input type="radio" name="q4" value="Sunsets"> Sunsets at St. Kilda</label><br>
-        <label><input type="radio" name="q4" value="Butterfly Museum"> Butterfly Museum</label><br>
-        <label><input type="radio" name="q4" value="Midnight strolls"> Mid-Night strolls</label><br>
-        <label><input type="radio" name="q4" value="All the above"> All the above ❤️</label>
+            <p class="q">3. What was our first movie date?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="3"> 3</label>
+                <label><input type="radio" name="q3" value="We Live In Time"> We Live In Time</label>
+            </div>
 
-        <p>5. Name one food we'd never agree to the way it's called in our language.</p>
-        <input id="q5" placeholder="Type your answer"><br><br>
+            <p class="q">4. What was one of our favourite moments?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Sunsets"> Sunsets at St. Kilda</label>
+                <label><input type="radio" name="q4" value="Butterfly"> Butterfly Museum</label>
+                <label><input type="radio" name="q4" value="Strolls"> Mid-Night strolls</label>
+                <label><input type="radio" name="q4" value="All"> All the above ❤️</label>
+            </div>
 
-        <button onclick="quizPage2()">Next Page ➜</button>
+            <p class="q">5. Name one food we'd never agree to the way it's called in our language.</p>
+            <input id="q5" placeholder="Type your answer">
+
+            <br><br>
+            <button onclick="quizPage2()">Next ➜</button>
+        </div>
     `;
 }
 
+/* PAGE 2 */
 function quizPage2() {
     container.innerHTML = `
-        <h2 style="font-family:'Great Vibes'; font-size:48px;">Quiz Time (Page 2) 💕</h2>
+        <div class="qBox">
 
-        <p>6. What are the nicknames I use to call you and which one do I use the most?</p>
-        <input id="q6" placeholder="Type your answer">
+            <p class="q">6. What are the nicknames I use to call you and which one do I use the most?</p>
+            <input id="q6" placeholder="Type your answer">
 
-        <p>7. Micheal can cook better than Sharon</p>
-        <label><input type="radio" name="q7" value="Agree"> Agree 😏</label><br>
-        <label><input type="radio" name="q7" value="Disagree"> Disagree</label>
+            <p class="q">7. Micheal can cook better than Sharon</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="Agree"> Agree 😏</label>
+                <label><input type="radio" name="q7" value="Disagree"> Disagree</label>
+            </div>
 
-        <p>8. When was our first sunrise together which you posted a story?</p>
-        <input id="q8" placeholder="Type your answer">
+            <p class="q">8. When was our first sunrise together which you posted a story?</p>
+            <input id="q8" placeholder="Type your answer">
 
-        <p>9. On which month did we buy rings for each other?</p>
-        <input id="q9" placeholder="Type your answer">
+            <p class="q">9. On which month did we buy rings for each other?</p>
+            <input id="q9" placeholder="Type your answer">
 
-        <p>10. Do you love me?</p>
-        <label><input type="radio" name="q10" value="Yes"> Yes</label><br>
-        <label><input type="radio" name="q10" value="Yes"> Yes</label><br>
-        <label><input type="radio" name="q10" value="All the above"> All the above ❤️</label><br><br>
+            <p class="q">10. Do you love me?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Yes"> Yes</label>
+                <label><input type="radio" name="q10" value="Yes"> Yes</label>
+                <label><input type="radio" name="q10" value="All the above"> All the above ❤️</label>
+            </div>
 
-        <button onclick="showScore()">Submit ➜</button>
+            <br><br>
+            <button onclick="showScore()">Results ➜</button>
+        </div>
     `;
 }
 
-/* ⭐ SCOREBOARD SCREEN ⭐ */
+/* RESULTS */
 function showScore() {
     container.innerHTML = `
         <h1 style="font-family:'Great Vibes'; font-size:55px;">Your Score 💖</h1>
 
-        <p style="font-size:26px; line-height:1.5;">
-            You got <b>10 out of 10</b>, which means you tried.  
-            <br>
+        <p style="font-size:26px; line-height:1.6;">
+            You got <b>10 out of 10</b>, which means you tried.<br>
             No matter what, I still love you kutti ma ❤️
         </p>
 
