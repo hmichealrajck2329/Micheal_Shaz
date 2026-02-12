@@ -67,7 +67,7 @@ body {
     animation: fadeIn 1.5s ease;
     position: relative;
     z-index: 5;
-    text-align: left; /* LEFT ALIGN EVERYTHING */
+    text-align: left;
 }
 
 /* Fade animation */
@@ -121,22 +121,23 @@ button:hover {
     text-align: left;
 }
 
-/* OPTION GROUP */
+/* OPTIONS LIST - LEFT ALIGNED */
 .options {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 20px;
     font-size: 20px;
 }
 
-/* EACH OPTION */
+/* EACH OPTION - FIX WRAPPING */
 .options label {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 10px;
+    white-space: nowrap;        /* ❗ Prevents text from breaking into new line */
 }
 </style>
 </head>
@@ -182,7 +183,7 @@ for (let i = 0; i < 20; i++) {
 </div>
 
 <script>
-/* ⭐ LEFT-ALIGNED QUIZ ⭐ */
+/* ⭐ LEFT-ALIGNED, NON-WRAPPING QUIZ ⭐ */
 
 /* PAGE 1 */
 function startQuiz() {
@@ -196,7 +197,7 @@ function startQuiz() {
         <p class="q">2. Which is a mandatory meal we ate every time I came?</p>
         <div class="options">
             <label><input type="radio" name="q2" value="Indomie"> Indomie</label>
-            <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label>
+            <label><input type="radio" name="q2" value="Loaded fries"> Loaded fries</label>
             <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
             <label><input type="radio" name="q2" value="All the above"> All the above ❤️</label>
         </div>
@@ -268,3 +269,4 @@ function showScore() {
 
 </body>
 </html>
+
