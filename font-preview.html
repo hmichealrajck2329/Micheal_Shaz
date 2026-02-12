@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Font Style Preview 🌸</title>
+
+<!-- Import ALL Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&family=Parisienne&family=Playfair+Display:ital,wght@1,700&family=Cormorant+Garamond:ital,wght@1,500&family=Poppins:wght@400;600&family=Allura&family=Satisfy&display=swap" rel="stylesheet">
+
+<style>
+/* 🌸 Background */
+body {
+    margin: 0;
+    padding-bottom: 200px;
+    background: linear-gradient(135deg, #ffe3ef, #ffdff8, #f4e3ff);
+    text-align: center;
+    font-family: sans-serif;
+    color: #7a4a4a;
+}
+
+/* ✨ Sparkles */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: sparkleFloat 6s linear infinite;
+}
+@keyframes sparkleFloat {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-350px); opacity: 0; }
+}
+
+/* 💐 Petals */
+.petal {
+    position: fixed;
+    top: -20px;
+    width: 18px;
+    height: 18px;
+    background-color: rgba(255,182,193,0.8);
+    border-radius: 50% 70% 50% 70%;
+    animation: fall 7s linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 🌟 Section Header */
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 55px;
+    margin-top: 50px;
+    color: #d46b86;
+    text-shadow: 0 0 8px rgba(255, 200, 220, 0.7);
+}
+
+/* 💗 Kawaii Inner Glow Container (STYLE E) */
+.fontBox {
+    max-width: 650px;
+    margin: 40px auto;
+    background: rgba(255,240,245,0.85);
+    padding: 50px;
+    border-radius: 45px;
+    box-shadow:
+        inset 0 0 20px rgba(255,200,220,0.6),
+        0 10px 30px rgba(255,150,180,0.4);
+}
+
+/* Subtext */
+p {
+    font-size: 20px;
+    color: #8c5b5b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sparkles Generator -->
+<script>
+for (let i = 0; i < 35; i++) {
+    let s = document.createElement("div");
+    s.classList.add("sparkle");
+    s.style.left = Math.random() * window.innerWidth + "px";
+    s.style.top = Math.random() * window.innerHeight + "px";
+    s.style.animationDelay = Math.random() * 6 + "s";
+    document.body.appendChild(s);
+}
+</script>
+
+<!-- Petals Generator -->
+<script>
+for (let i = 0; i < 20; i++) {
+    let p = document.createElement("div");
+    p.classList.add("petal");
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDelay = Math.random() * 7 + "s";
+    document.body.appendChild(p);
+}
+</script>
+
+<!-- 🌸 FONT PREVIEW SECTIONS -->
+
+<h1>1. Great Vibes (Romantic Cursive)</h1>
+<div class="fontBox" style="font-family: 'Great Vibes', cursive; font-size: 48px;">
+    This is our love story ❤️
+</div>
+
+<h1>2. Dancing Script (Playful Handwriting)</h1>
+<div class="fontBox" style="font-family: 'Dancing Script', cursive; font-size: 40px;">
+    You make everything brighter ✨
+</div>
+
+<h1>3. Parisienne (Elegant Love-Letter)</h1>
+<div class="fontBox" style="font-family: 'Parisienne', cursive; font-size: 45px;">
+    My heart belongs to you 💕
+</div>
+
+<h1>4. Playfair Display (Elegant Serif)</h1>
+<div class="fontBox" style="font-family: 'Playfair Display', serif; font-size: 38px;">
+    Our love feels timeless ✨
+</div>
+
+<h1>5. Cormorant Garamond (Luxury Romantic)</h1>
+<div class="fontBox" style="font-family: 'Cormorant Garamond', serif; font-size: 42px;">
+    Forever yours, my love 💖
+</div>
+
+<h1>6. Poppins (Clean Pastel Modern)</h1>
+<div class="fontBox" style="font-family: 'Poppins', sans-serif; font-size: 36px;">
+    You make me smile every day 😊
+</div>
+
+<h1>7. Allura (Soft Cursive)</h1>
+<div class="fontBox" style="font-family: 'Allura', cursive; font-size: 46px;">
+    You are my everything 💗
+</div>
+
+<h1>8. Satisfy (Bold Cursive Handwritten)</h1>
+<div class="fontBox" style="font-family: 'Satisfy', cursive; font-size: 44px;">
+    My heart beats for you ❤️‍🔥
+</div>
+
+</body>
+</html>
