@@ -67,6 +67,7 @@ body {
     animation: fadeIn 1.5s ease;
     position: relative;
     z-index: 5;
+    text-align: left; /* LEFT ALIGN EVERYTHING */
 }
 
 /* Fade animation */
@@ -75,10 +76,10 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Cute Inputs */
+/* Inputs */
 input {
     padding: 12px;
-    width: 80%;
+    width: 95%;
     font-size: 20px;
     border: 2px solid #ffb6c1;
     border-radius: 12px;
@@ -104,31 +105,37 @@ button {
     font-family: "Great Vibes", cursive;
     transition: 0.3s;
     box-shadow: 0 5px 15px rgba(255,140,160,0.4);
+    display: block;
+    margin: 25px auto 0 auto;
 }
 button:hover {
     transform: scale(1.12);
     background: #ff7a9c;
 }
 
-/* QUESTION STYLING */
+/* QUESTION TEXT */
 .q {
     font-size: 22px;
     margin-top: 25px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
+/* OPTION GROUP */
 .options {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 15px;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
+/* EACH OPTION */
 .options label {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
 }
 </style>
@@ -161,14 +168,12 @@ for (let i = 0; i < 20; i++) {
 
 <!-- 🌸 INTRO SECTION -->
 <div id="container">
-    <h1 style="font-size:52px; font-family:'Great Vibes', cursive;">Hii kutti ma 💖</h1>
+    <h1 style="font-size:52px; font-family:'Great Vibes', cursive; text-align:center;">Hii kutti ma 💖</h1>
 
-    <p style="font-size:24px; line-height:1.5;">
-        I hope this makes your day.
-        <br><br>
+    <p style="font-size:24px; line-height:1.5; text-align:center;">
+        I hope this makes your day.<br><br>
         We've been together for nearly 2 years now,<br>
-        to be exact it's <b>1 YEAR 8 MONTHS AND 6 DAYS</b> today.
-        <br><br>
+        to be exact it's <b>1 YEAR 8 MONTHS AND 6 DAYS</b> today.<br><br>
         Guess who made something cute for you? 😏<br>
         Click below and come see…
     </p>
@@ -177,89 +182,81 @@ for (let i = 0; i < 20; i++) {
 </div>
 
 <script>
-/* ⭐ PERFECTLY ALIGNED QUIZ ⭐ */
+/* ⭐ LEFT-ALIGNED QUIZ ⭐ */
 
 /* PAGE 1 */
 function startQuiz() {
     container.innerHTML = `
-        <h2 style="font-family:'Great Vibes'; font-size:48px;">Quiz Time 💕</h2>
-        <p style="font-size:22px; margin-bottom:35px;">Let's see if you score 10/10. I know you'll get everything correct hehe!!</p>
+        <h2 style="font-family:'Great Vibes'; font-size:48px; text-align:center;">Quiz Time 💕</h2>
+        <p style="font-size:22px; margin-bottom:35px; text-align:center;">Let's see if you score 10/10. I know you'll get everything correct hehe!!</p>
 
-        <div class="qBox">
+        <p class="q">1. What was the first text I sent you and which movie reference is it from?</p>
+        <input id="q1" placeholder="Type your answer">
 
-            <p class="q">1. What was the first text I sent you and which movie reference is it from?</p>
-            <input id="q1" placeholder="Type your answer">
-
-            <p class="q">2. Which is a mandatory meal we ate every time I came?</p>
-            <div class="options">
-                <label><input type="radio" name="q2" value="Indomie"> Indomie</label>
-                <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label>
-                <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
-                <label><input type="radio" name="q2" value="All the above"> All the above ❤️</label>
-            </div>
-
-            <p class="q">3. What was our first movie date?</p>
-            <div class="options">
-                <label><input type="radio" name="q3" value="3"> 3</label>
-                <label><input type="radio" name="q3" value="We Live In Time"> We Live In Time</label>
-            </div>
-
-            <p class="q">4. What was one of our favourite moments?</p>
-            <div class="options">
-                <label><input type="radio" name="q4" value="Sunsets"> Sunsets at St. Kilda</label>
-                <label><input type="radio" name="q4" value="Butterfly"> Butterfly Museum</label>
-                <label><input type="radio" name="q4" value="Strolls"> Mid-Night strolls</label>
-                <label><input type="radio" name="q4" value="All"> All the above ❤️</label>
-            </div>
-
-            <p class="q">5. Name one food we'd never agree to the way it's called in our language.</p>
-            <input id="q5" placeholder="Type your answer">
-
-            <br><br>
-            <button onclick="quizPage2()">Next ➜</button>
+        <p class="q">2. Which is a mandatory meal we ate every time I came?</p>
+        <div class="options">
+            <label><input type="radio" name="q2" value="Indomie"> Indomie</label>
+            <label><input type="radio" name="q2" value="Loaded Fries"> Loaded fries</label>
+            <label><input type="radio" name="q2" value="Maccas"> Maccas</label>
+            <label><input type="radio" name="q2" value="All the above"> All the above ❤️</label>
         </div>
+
+        <p class="q">3. What was our first movie date?</p>
+        <div class="options">
+            <label><input type="radio" name="q3" value="3"> 3</label>
+            <label><input type="radio" name="q3" value="We Live In Time"> We Live In Time</label>
+        </div>
+
+        <p class="q">4. What was one of our favourite moments?</p>
+        <div class="options">
+            <label><input type="radio" name="q4" value="Sunsets"> Sunsets at St. Kilda</label>
+            <label><input type="radio" name="q4" value="Butterfly"> Butterfly Museum</label>
+            <label><input type="radio" name="q4" value="Strolls"> Mid-Night strolls</label>
+            <label><input type="radio" name="q4" value="All"> All the above ❤️</label>
+        </div>
+
+        <p class="q">5. Name one food we'd never agree to the way it's called in our language.</p>
+        <input id="q5" placeholder="Type your answer">
+
+        <button onclick="quizPage2()">Next ➜</button>
     `;
 }
 
 /* PAGE 2 */
 function quizPage2() {
     container.innerHTML = `
-        <div class="qBox">
+        <p class="q">6. What are the nicknames I use to call you and which one do I use the most?</p>
+        <input id="q6" placeholder="Type your answer">
 
-            <p class="q">6. What are the nicknames I use to call you and which one do I use the most?</p>
-            <input id="q6" placeholder="Type your answer">
-
-            <p class="q">7. Micheal can cook better than Sharon</p>
-            <div class="options">
-                <label><input type="radio" name="q7" value="Agree"> Agree 😏</label>
-                <label><input type="radio" name="q7" value="Disagree"> Disagree</label>
-            </div>
-
-            <p class="q">8. When was our first sunrise together which you posted a story?</p>
-            <input id="q8" placeholder="Type your answer">
-
-            <p class="q">9. On which month did we buy rings for each other?</p>
-            <input id="q9" placeholder="Type your answer">
-
-            <p class="q">10. Do you love me?</p>
-            <div class="options">
-                <label><input type="radio" name="q10" value="Yes"> Yes</label>
-                <label><input type="radio" name="q10" value="Yes"> Yes</label>
-                <label><input type="radio" name="q10" value="All the above"> All the above ❤️</label>
-            </div>
-
-            <br><br>
-            <button onclick="showScore()">Results ➜</button>
+        <p class="q">7. Micheal can cook better than Sharon</p>
+        <div class="options">
+            <label><input type="radio" name="q7" value="Agree"> Agree 😏</label>
+            <label><input type="radio" name="q7" value="Disagree"> Disagree</label>
         </div>
+
+        <p class="q">8. When was our first sunrise together which you posted a story?</p>
+        <input id="q8" placeholder="Type your answer">
+
+        <p class="q">9. On which month did we buy rings for each other?</p>
+        <input id="q9" placeholder="Type your answer">
+
+        <p class="q">10. Do you love me?</p>
+        <div class="options">
+            <label><input type="radio" name="q10" value="Yes"> Yes</label>
+            <label><input type="radio" name="q10" value="Yes"> Yes</label>
+            <label><input type="radio" name="q10" value="All the above"> All the above ❤️</label>
+        </div>
+
+        <button onclick="showScore()">Results ➜</button>
     `;
 }
 
-/* RESULTS */
+/* RESULTS PAGE */
 function showScore() {
     container.innerHTML = `
-        <h1 style="font-family:'Great Vibes'; font-size:55px;">Your Score 💖</h1>
+        <h1 style="font-family:'Great Vibes'; font-size:55px; text-align:center;">Your Score 💖</h1>
 
-        <p style="font-size:26px; line-height:1.6;">
+        <p style="font-size:26px; line-height:1.6; text-align:center;">
             You got <b>10 out of 10</b>, which means you tried.<br>
             No matter what, I still love you kutti ma ❤️
         </p>
